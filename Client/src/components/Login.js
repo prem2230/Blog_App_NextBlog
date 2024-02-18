@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 
 const Login = ({ setIsAuthenticate }) => {
-    const API_URL = 'http://localhost:4000/'
+    const API_URL = 'https://nextblog-d739.onrender.com/'
     const [account,setAccount] = useState('login')
     const [email,setEmail] = useState('')
     const [username,setUsername] = useState('')
