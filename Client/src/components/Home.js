@@ -6,7 +6,7 @@ import { FaUserCheck } from "react-icons/fa6";
 
 
 const Home = () => {
-  const API_URL = 'http://localhost:4000/'
+  const API_URL = 'https://nextblog-d739.onrender.com/'
   const [posts,setPosts]=useState([])
   const [fetchError, setFetchError] = useState(null);
   const {accountDetails} = useContext(DataContext)
