@@ -7,7 +7,7 @@ import { GiCancel } from "react-icons/gi";
 
 
 const EditPost = () => {
-  const API_URL = 'http://localhost:4000/'
+  const API_URL = 'https://nextblog-d739.onrender.com/'
   const {id}=useParams()
   const [post,setPost] = useState({title:'',story:'',picture:'',username:''})
   const [image,setImage] = useState(null)
