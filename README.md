@@ -1,4 +1,4 @@
-NextBlog - A React Blogging Application
+#NextBlog - A React Blogging Application
 NextBlog is a simple blogging application built using React. It allows users to create, edit, and delete blog posts, as well as view posts created by other users. This README provides an overview of the application's features, installation instructions, and usage guidelines.
 
 Features
