@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const {signUpUser,loginUser,getAccountDetails} = require('../controllers/userController')
+const {signUpUser,loginUser,forgotPassword, resetPassword} = require('../controllers/userController')
 const {createPost,getPosts,getOnePost,updatePost,deletePost} = require('../controllers/postController')
 const {uploadImage,getImage,updateImage,deleteImage} = require('../controllers/imageController')
 const multerMiddleware = require('../middleware/multerMiddleware')
@@ -8,6 +8,9 @@ const checkTokenExpiration= require('../middleware/checkTokenMiddleware')
 
 router.route('/signup').post(signUpUser)
 router.route('/login').post(loginUser)
+router.route('/forgotpassword').post(forgotPassword)
+router.route('/resetpassword').patch(resetPassword)
+
 router.get('/protected/resource', checkTokenExpiration, (req, res) => {
     res.json({ message: 'Protected resource accessed successfully' });
   });
