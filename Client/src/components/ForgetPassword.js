@@ -4,7 +4,7 @@ import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 
 
 const ForgetPassword = () => {
-    const API_URL = 'http://localhost:4000/'
+    const API_URL = 'https://blog-app-nextblog.onrender.com/'
     const [email,setEmail] =useState('')
     const [newPassword,setNewPassword] = useState('')
     const [confirmPassword,setConfirmPassword] = useState('')  
