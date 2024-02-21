@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import apiRequest from './api/apiRequest'
 import DataContext from"./context/DataContext"
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 
-const Login = ({ setIsAuthenticate }) => {
-    const API_URL = 'https://blog-app-nextblog.onrender.com/'
+const Login = ({ setIsAuthenticate,isAuthenticate }) => {
+    const API_URL = 'http://localhost:4000/'
     const [account,setAccount] = useState('login')
     const [email,setEmail] = useState('')
     const [username,setUsername] = useState('')
@@ -25,6 +25,9 @@ const Login = ({ setIsAuthenticate }) => {
 
     const handleAccount = ()=>{
       setFetchError(null)
+      setEmail('')
+      setPassword('')
+      setUsername('')
         account==='signup'? setAccount('login'):setAccount('signup')
     }
     const handleVisible=()=>{
@@ -90,6 +93,7 @@ const Login = ({ setIsAuthenticate }) => {
       
       if (response.error) {
         setFetchError(response.error)
+        
       } else {
         sessionStorage.setItem('accessToken', response.data.accessToken);
         sessionStorage.setItem('refreshToken', response.data.refreshToken);
@@ -134,7 +138,12 @@ const Login = ({ setIsAuthenticate }) => {
             name='password' 
             required />
             <button className='eyeBtn' type='button' onClick={()=>handleVisible()}>{showPassword?<IoIosEye/>:<IoIosEyeOff/>}</button>
+            
             </div>
+            <div className='forget'>
+              <Link to='/forgetpassword'>Forget Password ?</Link>
+            </div>
+           
             {fetchError && <div className="fetch-error"> {fetchError} !!!</div>}
             
             <button onClick={()=>handleLogIn()} className='login'>Login</button>
