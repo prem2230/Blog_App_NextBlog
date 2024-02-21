@@ -11,6 +11,7 @@ import EditPost from './components/EditPost';
 import Contact from './components/Contact';
 import About from './components/About';
 import NotFound from './components/NotFound';
+import ForgetPassword from './components/ForgetPassword';
 
 function App() {
 
@@ -33,7 +34,8 @@ function App() {
    
       <BrowserRouter>
         <Routes>
-          <Route path='/login' element={<Login setIsAuthenticate={setIsAuthenticate}/>}/>
+          <Route path='/login' element={<Login isAuthenticate={isAuthenticate} setIsAuthenticate={setIsAuthenticate}/>}/>
+          <Route path='/forgetpassword' element={ <ForgetPassword />} />
 
           <Route path='/' element= {<PrivateRoute isAuthenticate = {isAuthenticate}  setIsAuthenticate={setIsAuthenticate}   token = {token} />}>
             <Route path='/' element = {<Home/>} />
