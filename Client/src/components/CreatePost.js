@@ -8,7 +8,7 @@
 
   const CreatePost = () => {
   
-    const API_URL = 'https://nextblog-d739.onrender.com/'
+    const API_URL = 'https://blog-app-nextblog.onrender.com/'
     const [ title,setTitle] = useState('')
     const [ story,setStory] = useState('')
     const [file,setFile] = useState(null)
