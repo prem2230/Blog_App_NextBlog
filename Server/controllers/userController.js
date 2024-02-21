@@ -60,7 +60,6 @@ const loginUser = async(req,res)=>{
                 expirationTime.setHours(expirationTime.getHours() + 2);
 
                 const Token = await token.create({token:refreshToken, expirationTime: expirationTime})
-                console.log('Tokens generated:', { accessToken, refreshToken });
                 res.json({
                     success:true,
                     accessToken:accessToken,
