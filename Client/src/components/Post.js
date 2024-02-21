@@ -8,7 +8,7 @@ import { FaUserPen } from "react-icons/fa6";
 
 const Post = () => {
     
-    const API_URL = 'https://nextblog-d739.onrender.com/'
+    const API_URL = 'https://blog-app-nextblog.onrender.com/'
     const {id} = useParams()
     const [post,setPost] = useState(null)
     const navigate = useNavigate()
