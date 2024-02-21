@@ -76,10 +76,44 @@ const loginUser = async(req,res)=>{
         res.status(500).json({success:false,error:'Internal Server Error'})
 
     }
+}
 
+const forgotPassword = async(req,res)=>{
+    const {email} = req.body
+
+    try{
+        const emailExists = await userModel.findOne({email})
+        if(!emailExists){
+            return res.status(400).json({success:false,message:'Email not found'})
+        }else{
+           return res.status(200).json({success:true,message:'Email verified successfully'})
+        }
+    }catch(error){
+        console.error('Error checking email',error)
+        res.status(500).json({success:false,error:'Internal server error'})
+    }
+
+}
+const resetPassword = async(req,res)=>{
+    const {email,newPassword} = req.body
+
+    try{
+        const user = await userModel.findOne({email})
+        if(!user){
+            return res.status(400).json({success:false,message:'Email not found'})
+        } 
+
+        const hashedPassword = await bcrypt.hash(newPassword, 10)
+        await userModel.updateOne({email},{password:hashedPassword})
+
+        return res.status(200).json({success:true,message:'Password reset successfully'})
+    }catch(error){
+        console.error('Error resetting password ',error)
+        return res.status(500).json({success:false,error:'Internal server error'})
+    }
     
 }
 
 
 
-module.exports = {signUpUser, loginUser}
+module.exports = {signUpUser, loginUser,forgotPassword,resetPassword}
